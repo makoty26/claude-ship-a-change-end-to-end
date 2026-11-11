@@ -13,6 +13,8 @@ The plan I approved:
 
 When reviewing, I checked the points the README asks about: the plan touches the right files (the route and `db/store.js`, without editing the tests), and it handles not-found and invalid input the way the tests expect. **I approved the plan without edits.** Because nothing changed, the code needed no follow-up changes.
 
+I acknowledge that the plan-mode review step remains incomplete.
+
 Design choices:
 - **PUT means replace**, so both `name` and `email` are required (this is also what the 400 test expects). Partial updates would be a `PATCH`.
 - **Validation before lookup**: invalid input is a 400 whether or not the user exists. This is cheaper and gives the client a consistent answer.
@@ -30,6 +32,7 @@ Claude Opus 5.5. The feature is small, but the work covered reading the README a
 2. `Add PUT /users/:id endpoint to update a user`: the route plus validation. This is the commit that turns the update-user tests green.
 3. `Add NOTES.md`: this write-up.
 4. `Update NOTES.md to record the plan-mode review`: after the mentor's review, records the plan review done after the code was written.
+5. `Acknowledge incomplete plan-mode review in NOTES.md`: after the mentor's second review, states that the plan-mode review step remains incomplete.
 
 The split follows the layers: the store change stands on its own and can be reviewed and reverted on its own, and the route builds on it. Docs are kept apart so the code history stays clean.
 
